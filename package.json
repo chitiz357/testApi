@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/chitiz357/testApi/issues"
   },
-  "homepage": "https://github.com/chitiz357/testApi#readme"
+  "homepage": "https://github.com/chitiz357/testApi#readme",
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
 }
