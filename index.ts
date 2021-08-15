@@ -6,4 +6,6 @@ app.get('/',(req,res)=> {
 res.send('hola mundo!')
 })
 
-app.listen(3001,()=>console.log('runnig'))
+const PORT = process.env.PORT || 3001
+
+app.listen(PORT,()=>console.log(`runnig in port ${PORT}`))
