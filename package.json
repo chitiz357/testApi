@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
+    "tsDev": "tsc -W",
     "ts": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,14 +20,13 @@
     "url": "https://github.com/chitiz357/testApi/issues"
   },
   "homepage": "https://github.com/chitiz357/testApi#readme",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "@types/express": "^4.17.13",
     "@types/node": "^16.6.1",
-
-    "typescript": "^4.3.5"
-  },
-  "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "cors": "^2.8.5"
+    "nodemon": "^2.0.12",
+    "typescript": "^4.3.5"
   }
 }
