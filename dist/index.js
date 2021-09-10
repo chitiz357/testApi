@@ -9,10 +9,11 @@ const users_1 = require("./users");
 const app = express_1.default();
 app.use(cors_1.default());
 app.get("/api/users", (req, res) => {
-    res.send(users_1.usersList);
+    users_1.usersList.map((atlec) => console.log(atlec.role));
+    return res.send(users_1.usersList);
 });
-app.get("/", (request, response) => {
-    response.send("<h1>Hello World!</h1>");
+app.get("/", (req, res) => {
+    res.send("<h1>Hello World!</h1>");
 });
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`runnig in port!!!! ${PORT}`));
+app.listen(PORT, () => console.log(`runnig in port!!!! ${PORT}👍`));

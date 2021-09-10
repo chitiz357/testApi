@@ -7,14 +7,19 @@ class User {
         this._id = Math.random();
         this._role = "user";
     }
+    get name() {
+        return this._name;
+    }
+    get role() {
+        return this._role;
+    }
 }
 class Athetec extends User {
     constructor(name) {
         super(name);
-        this._role = 'athetec';
+        this._role = "athetec";
     }
 }
-const bryan = new Athetec('bryan');
-exports.usersList = [
-    bryan
-];
+const bryan = new Athetec("bryan");
+const sebastian = new Athetec("sebastian");
+exports.usersList = [bryan, sebastian];
