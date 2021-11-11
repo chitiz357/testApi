@@ -1,2 +1,4 @@
-node_module/
-dist/
+
+# dependencencis
+/node_modules
+/dist
