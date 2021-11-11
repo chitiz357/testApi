@@ -3,7 +3,7 @@ class User {
   private _name: string;
   protected _role: string;
 
-  constructor(name) {
+  constructor(name:string) {
 
     this._name = name;
     this._id = Math.random();
@@ -21,7 +21,7 @@ class User {
 }
 
 class Athetec extends User {
-  constructor(name) {
+  constructor(name:string) {
     super(name);
     this._role = "athetec";
   }
