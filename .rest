@@ -1,1 +1,11 @@
+GET http://localhost:3001/users HTTP/1.1
+
+
 ###
+POST http://localhost:3001/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "bryan don`t",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}

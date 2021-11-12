@@ -1,20 +1,25 @@
-import Express from "express";
-import cors from "cors";
-import { usersList } from "./users";
+import Express, { Request, Response } from 'express'
+import cors from 'cors'
+import users from './users'
+import express from 'express'
 
-const app = Express();
+const app = Express()
 
-app.use(cors());
+app.use(express.json())
 
-app.get("/api/users", (req, res) => {
-  usersList.map((atlec) => console.log(atlec.role));
-  return res.send(usersList);
-});
+app.use(cors())
 
-app.get("/", (req, res) => {
-  res.send("<h1>Hello World!</h1>");
-});
+const hello = (req: Request, res: Response) => {
+	res.send(`<h1>Hello World!</h1>`)
+}
 
-const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => console.log(`runnig in port!!!! ${PORT}👍`));
+app.get('/users/:name', users.name)
+app.post('/users', users.create)
+app.get('/users', users.all)
+
+app.get('/', hello)
+
+const PORT = process.env.PORT || 3001
+
+app.listen(PORT, () => console.log(`runnig in port! ${PORT}👍`))
