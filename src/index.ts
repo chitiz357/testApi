@@ -1,22 +1,31 @@
-import Express, { Request, Response } from 'express'
+import Express, { Request, Response, NextFunction } from 'express'
 import cors from 'cors'
-import users from './users'
+import {name ,create ,all} from './users'
 import express from 'express'
 
 const app = Express()
 
-app.use(express.json())
+const requestLogger = (req: Request, res: Response, next: NextFunction) => {
+	console.log('---')
+	console.log('Method:', req.method)
+	console.log('Path:  ', req.path)
+	console.log('Body:  ', req.body)
 
+	console.log('---')
+	next()
+}
+
+app.use(express.json())
 app.use(cors())
+// app.use(requestLogger)
 
 const hello = (req: Request, res: Response) => {
 	res.send(`<h1>Hello World!</h1>`)
 }
 
-
-app.get('/users/:name', users.name)
-app.post('/users', users.create)
-app.get('/users', users.all)
+app.post('/users', create)
+app.get('/users', all)
+app.get('/users/:name', name)
 
 app.get('/', hello)
 
