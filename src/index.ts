@@ -27,6 +27,31 @@ let notes: Note[] = [
 	},
 ];
 
+const getOneNote = (req: Request, res: Response) => {
+	const id = Number(req.params.id);
+	const note = notes.find((note) => note.id === id);
+
+	res.send(note);
+};
+
+const getNotes = (_req: Request, res: Response) => {
+	res.send(notes);
+};
+
+const postNote = (req: Request, res: Response) => {
+	const { content, tittle, important } = req.body;
+	const newNote: Note = {
+		content,
+		tittle,
+		important,
+		id: Math.random(),
+		date: new Date(),
+	};
+
+	notes.push(newNote);
+	res.send(newNote);
+};
+
 const requestLogger = (req: Request, _res: Response, next: NextFunction) => {
 	console.log('---');
 	console.log('Method:', req.method);
@@ -49,13 +74,9 @@ app.post('/users', create);
 app.get('/users', all);
 app.get('/users/:name', name);
 
-app.get('/api/notes', (_req, res) => res.send(notes));
-app.get('/api/notes/:id', (req, res) => {
-	const id = Number(req.params.id); 	
-	const note = notes.find((note) => note.id === id);
-
-	res.send(note);
-});
+app.post('/api/notes', postNote)
+app.get('/api/notes', getNotes);
+app.get('/api/notes/:id', getOneNote);
 
 app.get('/', hello);
 
