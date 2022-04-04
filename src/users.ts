@@ -36,7 +36,7 @@ export const name = (req: Request, res: Response): void => {
  *
  * @returns reutrn all users form the list
  */
-export const all = (req: Request, res: Response) => {
+export const all = (_req: Request, res: Response) => {
 	res.send(usersList)
 }
 
